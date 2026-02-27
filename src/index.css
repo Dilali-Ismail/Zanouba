@@ -1,0 +1,319 @@
+:root {
+  /* Brand Colors - La Mamounia Inspired */
+  --primary: #781924;
+  /* Royal Bordeaux Red */
+  --accent: #C9A96E;
+  /* Gold/Beige */
+  --background: #FAF8F4;
+  /* Crème / Off-white main background */
+  --light-bg: #ECE6E0;
+  /* Beige sand alternate background */
+
+  /* Navigation Variables */
+  --nav-bg-top: transparent;
+  --nav-bg-scrolled: #000000;
+  --nav-text-top: #FFFFFF;
+  --nav-text-scrolled: #FFFFFF;
+
+  /* Text Colors */
+  --text-primary: #1A1A1A;
+  /* Deep Black */
+  --text-secondary: #333333;
+  /* Charcoal Gray */
+  --neutral: #FFFFFF;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Raleway', Arial, sans-serif;
+  color: var(--text-primary);
+  background-color: var(--background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Raleway', Arial, sans-serif;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: 0;
+}
+
+h1.text-primary,
+h2.text-primary,
+h3.text-primary,
+h4.text-primary,
+h5.text-primary,
+h6.text-primary {
+  color: var(--primary);
+}
+
+/* Base Tailwind-like Utility Resets */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 2rem;
+  background-color: var(--primary);
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.05em;
+  transition: all 0.5s ease-out;
+  border: 1px solid transparent;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+}
+
+.btn-primary:hover {
+  background-color: white;
+  color: var(--primary);
+  border-color: var(--accent);
+  box-shadow: 0 4px 15px rgba(201, 169, 110, 0.2);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 2rem;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.05em;
+  transition: all 0.5s ease-out;
+  background-color: transparent;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+}
+
+.btn-outline:hover {
+  background-color: var(--primary);
+  color: white;
+}
+
+/* Patterns */
+.bg-zellige {
+  background-image:
+    linear-gradient(rgba(250, 248, 244, 0.95), rgba(250, 248, 244, 0.95)),
+    url('data:image/svg+xml;utf8,<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M20 0l20 20-20 20L0 20z" fill="%23C9A96E" fill-opacity="0.1" fill-rule="evenodd"/></svg>');
+  background-repeat: repeat;
+}
+
+.text-serif {
+  font-family: 'Raleway', Arial, sans-serif;
+}
+
+.text-sans {
+  font-family: 'Raleway', Arial, sans-serif;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes rotateSlow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 1.5s ease-out forwards;
+}
+
+.animate-fade-out {
+  animation: fadeOut 1s ease-in forwards;
+}
+
+.animate-spin-slow {
+  animation: rotateSlow 15s linear infinite;
+}
+
+/* Custom Scrollbar for luxury feel */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Custom Utilities */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes zoomOut {
+  from {
+    transform: scale(1.1);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+/* React DatePicker Custom Styling (La Mamounia Style) */
+.react-datepicker {
+  font-family: 'Montserrat', sans-serif !important;
+  border: 1px solid var(--accent) !important;
+  border-radius: 4px !important;
+  background-color: var(--background) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+}
+
+.react-datepicker__header {
+  background-color: var(--background) !important;
+  border-bottom: 1px solid rgba(201, 169, 110, 0.3) !important;
+  padding-top: 15px !important;
+}
+
+.react-datepicker__current-month,
+.react-datepicker-time__header,
+.react-datepicker-year-header {
+  color: var(--primary) !important;
+  font-family: 'Playfair Display', serif !important;
+  font-weight: 500 !important;
+  font-size: 1.25rem !important;
+  text-transform: capitalize !important;
+}
+
+.react-datepicker__day-name,
+.react-datepicker__day,
+.react-datepicker__time-name {
+  color: var(--text-primary) !important;
+  width: 2.5rem !important;
+  line-height: 2.5rem !important;
+  margin: 0.2rem !important;
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--in-selecting-range,
+.react-datepicker__day--in-range,
+.react-datepicker__month--selected,
+.react-datepicker__month--in-selecting-range,
+.react-datepicker__month--in-range,
+.react-datepicker__quarter--selected,
+.react-datepicker__quarter--in-selecting-range,
+.react-datepicker__quarter--in-range,
+.react-datepicker__year-text--selected,
+.react-datepicker__year-text--in-selecting-range,
+.react-datepicker__year-text--in-range {
+  background-color: var(--primary) !important;
+  color: white !important;
+  font-weight: bold !important;
+  border-radius: 50% !important;
+}
+
+.react-datepicker__day--keyboard-selected,
+.react-datepicker__month-text--keyboard-selected,
+.react-datepicker__quarter-text--keyboard-selected,
+.react-datepicker__year-text--keyboard-selected {
+  background-color: var(--accent) !important;
+  color: white !important;
+  border-radius: 50% !important;
+}
+
+.react-datepicker__day:hover,
+.react-datepicker__month-text:hover,
+.react-datepicker__quarter-text:hover,
+.react-datepicker__year-text:hover {
+  background-color: rgba(201, 169, 110, 0.2) !important;
+  border-radius: 50% !important;
+  color: var(--primary) !important;
+}
+
+.react-datepicker__day--disabled,
+.react-datepicker__month-text--disabled,
+.react-datepicker__quarter-text--disabled,
+.react-datepicker__year-text--disabled {
+  color: #ccc !important;
+  background-color: transparent !important;
+}
+
+.react-datepicker-popper[data-placement^=bottom] .react-datepicker__triangle::before,
+.react-datepicker-popper[data-placement^=bottom] .react-datepicker__triangle::after {
+  border-bottom-color: var(--background) !important;
+}
+
+/* Stepper Custom */
+.step-item.active .step-number {
+  background-color: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.step-item.completed .step-number {
+  background-color: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.step-item .step-number {
+  transition: all 0.4s ease;
+}
