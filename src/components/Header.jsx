@@ -66,7 +66,7 @@ const Header = () => {
                     <div className="flex-shrink-0 z-50">
                         <Link to="/" className="block">
                             <img
-                                src="/images/logo.png"
+                                src="/images/logo.webp"
                                 alt="Riad ZANOUBA"
                                 className="h-10 md:h-14 lg:h-16 w-auto transition-all duration-500 hover:scale-105"
                                 style={{

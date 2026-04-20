@@ -1,23 +1,29 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Preloader = ({ onComplete }) => {
     const [isLoaded, setIsLoaded] = useState(false);
     const [shouldRender, setShouldRender] = useState(true);
+    const onCompleteRef = useRef(onComplete);
+    onCompleteRef.current = onComplete;
 
     useEffect(() => {
-        // Simulation of loading assets or minimum display time
-        const timer = setTimeout(() => {
-            setIsLoaded(true);
-            // Complete signal after doors fully open (approx 5.5s total)
-            setTimeout(() => {
-                if (onComplete) onComplete();
-                setShouldRender(false);
-            }, 2500);
-        }, 3500);
+        // Court délai pour une frame de logo, puis ouverture — les longs timeouts
+        // artificiels pénalisent fortement le LCP (rideau plein écran au-dessus du hero).
+        const startOpen = setTimeout(() => setIsLoaded(true), 180);
 
-        return () => clearTimeout(timer);
-    }, [onComplete]);
+        return () => clearTimeout(startOpen);
+    }, []);
+
+    useEffect(() => {
+        if (!isLoaded) return;
+        const delayMs = 150 + 900 + 80; // delay rideau + durée transition + marge
+        const done = setTimeout(() => {
+            onCompleteRef.current?.();
+            setShouldRender(false);
+        }, delayMs);
+        return () => clearTimeout(done);
+    }, [isLoaded]);
 
     if (!shouldRender) return null;
 
@@ -27,7 +33,7 @@ const Preloader = ({ onComplete }) => {
             <motion.div
                 initial={{ x: 0 }}
                 animate={isLoaded ? { x: '-100%' } : { x: 0 }}
-                transition={{ duration: 2.2, ease: [0.25, 0.1, 0.25, 1], delay: 0.5 }}
+                transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1], delay: 0.15 }}
                 className="absolute inset-y-0 left-0 w-1/2 bg-[#FAF8F4] z-10 pointer-events-auto"
             />
 
@@ -35,7 +41,7 @@ const Preloader = ({ onComplete }) => {
             <motion.div
                 initial={{ x: 0 }}
                 animate={isLoaded ? { x: '100%' } : { x: 0 }}
-                transition={{ duration: 2.2, ease: [0.25, 0.1, 0.25, 1], delay: 0.5 }}
+                transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1], delay: 0.15 }}
                 className="absolute inset-y-0 right-0 w-1/2 bg-[#FAF8F4] z-10 pointer-events-auto"
             />
 
@@ -65,7 +71,7 @@ const Preloader = ({ onComplete }) => {
                             {/* Centered Logo */}
                             <div className="relative z-30 flex flex-col items-center">
                                 <motion.img
-                                    src="/images/logo.png"
+                                    src="/images/logo.webp"
                                     alt="Riad ZANOUBA"
                                     className="h-24 md:h-32 w-auto"
                                     initial={{ opacity: 0 }}

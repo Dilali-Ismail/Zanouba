@@ -29,7 +29,7 @@ const servicesData = [
         title: 'Expériences Authentiques',
         subtitle: 'Découvrez l\'âme secrète de Marrakech',
         description: 'Au-delà de nos murs, l\'effervescence de la médina vous appelle. Nous organisons pour vous des parenthèses immersives : balades guidées hors des sentiers battus, rencontres avec les maîtres artisans locaux, ou bien salutations au soleil lors d\'une session de yoga sur notre toit-terrasse.',
-        image: '/images/services/culture-content.png',
+        image: '/images/services/culture-content.webp',
         icon: <Compass size={32} className="text-[var(--accent)] mb-4" />,
         features: ['Yoga sur le Rooftop', 'Excursions Médina sur-mesure', 'Visites d\'ateliers d\'artisans', 'Escapades dans l\'Atlas'],
         reverse: false

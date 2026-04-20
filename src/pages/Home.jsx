@@ -11,6 +11,10 @@ const Home = () => {
                     <img
                         src="/images/hero/hero-patio.jpg"
                         alt="Riad Zanouba Architecture"
+                        width={1920}
+                        height={1080}
+                        fetchPriority="high"
+                        decoding="async"
                         className="w-full h-full object-cover scale-105 animate-[zoomOut_20s_ease-out_forwards]"
                         onError={(e) => {
                             e.target.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none"><rect width="100" height="100" fill="%23ECE6E0"/></svg>';
@@ -21,25 +25,25 @@ const Home = () => {
                 </div>
 
                 <div className="relative z-10 text-center text-white px-6 w-full max-w-5xl mt-20">
-                    <FadeInSection delay={0}>
+                    <FadeInSection aboveTheFold delay={0}>
                         <h2 className="text-sm md:text-base font-sans font-light tracking-[0.3em] uppercase mb-4 drop-shadow-md">
                             Bienvenue au cœur du
                         </h2>
                     </FadeInSection>
 
-                    <FadeInSection delay={300}>
+                    <FadeInSection aboveTheFold delay={0}>
                         <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif text-white mb-6 drop-shadow-xl font-normal tracking-wide">
                             Riad ZANOUBA
                         </h1>
                     </FadeInSection>
 
-                    <FadeInSection delay={600}>
+                    <FadeInSection aboveTheFold delay={450}>
                         <p className="text-xl md:text-2xl font-serif italic text-white/90 font-light mb-12 drop-shadow-md">
                             Une oasis d'authenticité et de sérénité à Marrakech
                         </p>
                     </FadeInSection>
 
-                    <FadeInSection delay={900}>
+                    <FadeInSection aboveTheFold delay={750}>
                         <Link
                             to="/booking"
                             className="inline-flex items-center justify-center px-10 py-4 bg-[var(--primary)] text-white font-sans text-sm tracking-widest uppercase rounded-lg border-2 border-[var(--primary)] hover:bg-transparent hover:text-white hover:border-[var(--accent)] transition-all duration-400 ease-out hover:scale-105"
@@ -90,7 +94,7 @@ const Home = () => {
                     <div className="flex-1 w-full order-2 md:order-1">
                         <FadeInSection>
                             <img
-                                src="/images/hero/detail-1.jfif"
+                                src="/images/hero/detail-1.webp"
                                 alt="L'authenticité marocaine"
                                 className="w-full h-[70vh] object-cover shadow-2xl"
                                 onError={(e) => {
@@ -177,7 +181,7 @@ const Home = () => {
 
                 <div className="max-w-full overflow-x-auto pb-8 hide-scrollbar">
                     <div className="flex gap-4 px-4 min-w-max">
-                        {['gal-1.avif', 'gal-2.webp', 'gal-3.webp', 'gal-4.jpg', 'gal-5.jfif'].map((imgName, index) => (
+                        {['gal-1.avif', 'gal-2.webp', 'gal-3.webp', 'gal-4.jpg', 'gal-5.webp'].map((imgName, index) => (
                             <FadeInSection key={index} delay={index * 150} className="w-[280px] md:w-[350px] aspect-square">
                                 <img
                                     src={`/images/gallery/${imgName}`}

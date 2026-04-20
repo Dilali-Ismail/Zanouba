@@ -1,14 +1,22 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-const FadeInSection = ({ children, delay = 0, className = "" }) => {
-    const [isVisible, setVisible] = useState(false);
-    const domRef = useRef();
+const FadeInSection = ({ children, delay = 0, className = "", aboveTheFold = false }) => {
+    const [isVisible, setVisible] = useState(() => Boolean(aboveTheFold && delay === 0));
+    const domRef = useRef(null);
 
     useEffect(() => {
+        if (aboveTheFold) {
+            if (delay === 0) {
+                setVisible(true);
+                return;
+            }
+            const t = setTimeout(() => setVisible(true), delay);
+            return () => clearTimeout(t);
+        }
+
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // Add a small delay for staggered animations if needed
                     setTimeout(() => {
                         setVisible(true);
                     }, delay);
@@ -30,7 +38,7 @@ const FadeInSection = ({ children, delay = 0, className = "" }) => {
                 observer.unobserve(currentRef);
             }
         };
-    }, [delay]);
+    }, [delay, aboveTheFold]);
 
     return (
         <div

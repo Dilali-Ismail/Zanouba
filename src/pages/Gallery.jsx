@@ -7,7 +7,7 @@ const galleryItems = [
     { id: 2, src: '/images/gallery/gal-2.webp', category: 'Extérieur / Jardins', caption: 'Jardin suspendu au cœur de la Médina' },
     { id: 3, src: '/images/gallery/gal-3.webp', category: 'Détails & Artisanat', caption: 'Finesse des sculptures en cèdre' },
     { id: 4, src: '/images/gallery/gal-4.jpg', category: 'Suites & Chambres', caption: 'Confort et élégance de nos suites' },
-    { id: 5, src: '/images/gallery/gal-5.jfif', category: 'Expériences', caption: 'Rituels bien-être ancestraux' },
+    { id: 5, src: '/images/gallery/gal-5.webp', category: 'Expériences', caption: 'Rituels bien-être ancestraux' },
     { id: 6, src: '/images/gallery/gal-6.jpg', category: 'Extérieur / Jardins', caption: 'Terrasse ensoleillée sur le toit' },
     { id: 7, src: '/images/gallery/gal-7.avif', category: 'Détails & Artisanat', caption: 'Mosaïques et zelliges traditionnels' },
     { id: 8, src: '/images/gallery/gal-8.webp', category: 'Suites & Chambres', caption: 'Détails raffinés de votre chambre' },

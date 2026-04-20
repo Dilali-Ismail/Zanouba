@@ -72,7 +72,7 @@ const Footer = () => {
                     <div className="flex flex-col items-center order-1 md:order-2">
                         <Link to="/" className="group text-center">
                             <img
-                                src="/images/logo.png"
+                                src="/images/logo.webp"
                                 alt="Zanouba"
                                 className="h-16 md:h-20 lg:h-24 w-auto transition-transform duration-500 group-hover:scale-105"
                             />
